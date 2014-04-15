@@ -65,7 +65,7 @@
         <mkdir dir="lib/test"/>
     </target>
 
-    <target name="compile" depends="make-build-dir, resolve" description="Compiles the source">
+    <target name="compile" depends="make-build-dir, resolve, compile-scala" description="Compiles the source">
         <javac srcdir="${java.src.dir}"
                destdir="${build.classes}"
                classpathref="classpath"

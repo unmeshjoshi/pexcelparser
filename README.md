@@ -10,7 +10,7 @@
 4. Whereever you have checked out the code, there is a test.xlsx file. 
    Test this service as
 
-	curl -d "" -i "http://localhost:8080?fileName=GIVE FULL PATH TO YOUR test.xlsx"
+	curl -F name=file -F file=@test.xlsx -i "http://localhost:8080"
 
     You should get json back for a section of onboarding
 
