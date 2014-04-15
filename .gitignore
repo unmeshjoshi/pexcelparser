@@ -3,7 +3,7 @@ lib/buildtime/
 lib/test/
 lib/sources/
 .idea
-out
+out/
 dist
 target/build/
 target/build/dist/
