@@ -1,5 +1,9 @@
-lib
+lib/runtime/
+lib/buildtime/
+lib/test/
 .idea
+out
+dist
 *.iml
 *.ipr
 

@@ -1,5 +1,10 @@
-lib
+lib/runtime/
+lib/buildtime/
+lib/test/
+lib/sources/
 .idea
+out
+dist
 *.iml
 *.ipr
 
