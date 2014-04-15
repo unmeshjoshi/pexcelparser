@@ -1,0 +1,7 @@
+Testsuite: com.pubmatic.parser.PublisherOnboardingFormPOIBasedParserTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 10.646 sec
+
+Testcase: shouldParseFormControlsFromXlsx took 0 sec
+	SKIPPED
+Testcase: shouldParsePlatformEngagement took 0 sec
+Testcase: shouldParseOnboardingTables took 0 sec
