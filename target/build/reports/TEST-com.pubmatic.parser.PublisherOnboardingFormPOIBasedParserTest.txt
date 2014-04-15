@@ -1,7 +1,10 @@
 Testsuite: com.pubmatic.parser.PublisherOnboardingFormPOIBasedParserTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 10.646 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 9.364 sec
+------------- Standard Output ---------------
+desktopApplications = {"highLevelSiteInfo":{"siteInfos":[{"siteName":"Gawker.com","category":"Entertainment \u0026 Leisure","description":"Gawker Media is the publisher of some of the best loved titles on the web including the eponymous Gawker and gadget sensation Gizmodo.","typeOfInventory":"Website","transperancy":"Transparent","uniqUsers":9000000.0,"clickThroughRate":0.03,"usTraffic":"80% US","caTraffic":"15% CA","ukTraffic":"3% UK","auTraffic":"2% AU"}]},"websiteDetails":{"websites":[]}}
+------------- ---------------- ---------------
 
 Testcase: shouldParseFormControlsFromXlsx took 0 sec
 	SKIPPED
 Testcase: shouldParsePlatformEngagement took 0 sec
-Testcase: shouldParseOnboardingTables took 0 sec
+Testcase: shouldParseOnboardingTables took 0.046 sec
