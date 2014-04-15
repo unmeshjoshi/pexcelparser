@@ -5,7 +5,9 @@ lib/sources/
 .idea
 out
 dist
-target/build
+target/build/
+target/build/dist/
+target/build/reports/
 *.iml
 *.ipr
 
