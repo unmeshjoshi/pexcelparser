@@ -26,9 +26,5 @@
         <dependency org="org.scala-lang" name="scala-compiler" rev="2.10.3" conf="compile->default"/>
         <dependency org="org.scalatest" name="scalatest_2.10" rev="2.0" conf="test->default"/>
         <dependency org="com.typesafe.akka" name="akka-actor_2.10" rev="2.3-M2" conf="compile->default"/>
-        <dependency org="org.scala-lang" name="scala-library" rev="2.10.3" conf="sources->sources"/>
-        <dependency org="org.scala-lang" name="scala-compiler" rev="2.10.3" conf="sources->sources"/>
-        <dependency org="org.scalatest" name="scalatest_2.10" rev="2.0" conf="sources->sources"/>
-        <dependency org="com.typesafe.akka" name="akka-actor_2.10" rev="2.3-M2" conf="sources->sources"/>
     </dependencies>
 </ivy-module>
