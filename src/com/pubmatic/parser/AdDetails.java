@@ -2,7 +2,7 @@ package com.pubmatic.parser;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 
-public class Website {
+public class AdDetails {
 
     private final String siteName;
     private final String atfAdSize;
@@ -12,7 +12,7 @@ public class Website {
     private final String btfMontlyImpressionsTotal;
     private final String btfMontlyIMpressionsToPubmatic;
 
-    public Website(XSSFRow row) {
+    public AdDetails(XSSFRow row) {
         siteName = row.getCell(1).getStringCellValue();
         atfAdSize = row.getCell(2).getStringCellValue();
         atfMonthlyImpressionTotal = row.getCell(3).getStringCellValue();

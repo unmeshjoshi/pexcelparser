@@ -2,19 +2,19 @@ package com.pubmatic.parser;
 
 public class DesktopApplications {
     HighLevelSiteInfo highLevelSiteInfo;
-    WebsiteDetails websiteDetails;
+    ApplicationDetails applicationDetails;
 
-    public DesktopApplications(HighLevelSiteInfo highLevelSiteInfo, WebsiteDetails websiteDetails) {
+    public DesktopApplications(HighLevelSiteInfo highLevelSiteInfo, ApplicationDetails applicationDetails) {
 
         this.highLevelSiteInfo = highLevelSiteInfo;
-        this.websiteDetails = websiteDetails;
+        this.applicationDetails = applicationDetails;
     }
 
     public HighLevelSiteInfo getHighLevelSiteInfo() {
         return highLevelSiteInfo;
     }
 
-    public WebsiteDetails getWebsiteDetails() {
-        return websiteDetails;
+    public ApplicationDetails getApplicationDetails() {
+        return applicationDetails;
     }
 }

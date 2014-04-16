@@ -28,17 +28,38 @@ public class PublisherOnboardingFormPOIBasedParserTest {
         parser.parse(new FileInputStream("./test.xlsx"));
     }
 
-
     @Test
-    public void shouldParseOnboardingTables() throws IOException {
+    public void shouldParseOnboardingTablesForDesktop() throws IOException {
         Onboarding onboarding = parser.getOnboardingDetails();
         DesktopApplications desktopApplications = onboarding.getDesktopApplications();
         assertNotNull(desktopApplications);
         assertNotNull(desktopApplications.getHighLevelSiteInfo());
-        assertEquals(1,desktopApplications.getHighLevelSiteInfo().getSites().size());
-        assertNotNull(desktopApplications.getWebsiteDetails());
+        assertEquals(1, desktopApplications.getHighLevelSiteInfo().getSites().size());
+        assertNotNull(desktopApplications.getApplicationDetails());
+    }
 
-        System.out.println("desktopApplications = " + new Gson().toJson(desktopApplications));
+    @Test
+    public void shouldParseOnboardingTablesForMobile() throws IOException {
+        Onboarding onboarding = parser.getOnboardingDetails();
+        MobileApplications mobileApplications = onboarding.getMobileApplications();
+        assertNotNull(mobileApplications);
+        assertNotNull(mobileApplications.getMobileHighLevelSiteInfo());
+        assertEquals(1, mobileApplications.getMobileHighLevelSiteInfo().getSites().size());
+        assertNotNull(mobileApplications.getAndroidApplications());
+        assertNotNull(mobileApplications.getIosApplications());
+        assertNotNull(mobileApplications.getMobileWebApplications());
+        assertNotNull(mobileApplications.getTabletApplications());
+        assertNotNull(mobileApplications.getTabletWebApplications());
+    }
+
+    @Test
+    public void shouldParseOnboardingTablesForVideo() throws IOException {
+        Onboarding onboarding = parser.getOnboardingDetails();
+        VideoApplications videoApplications = onboarding.getVideoApplications();
+        assertNotNull(videoApplications);
+        assertNotNull(videoApplications.getVideoHighLevelSiteInfo());
+        assertEquals(1, videoApplications.getVideoHighLevelSiteInfo().getSites().size());
+        assertNotNull(videoApplications.getVideoDetails());
     }
 
     @Test
@@ -48,7 +69,8 @@ public class PublisherOnboardingFormPOIBasedParserTest {
     }
 
 
-    @Test @Ignore //XSSF doesnt support this. HSSF probably does, but its not useful.
+    @Test
+    @Ignore //XSSF doesnt support this. HSSF probably does, but its not useful.
     public void shouldParseFormControlsFromXlsx() throws Exception {
         FileInputStream is = new FileInputStream("/home/unmesh/work/pubmatic/test/com/pubmatic/parser/PubMatic Publisher OnBoarding Form.xlsx");
         POIFSFileSystem poifs = new POIFSFileSystem(is);

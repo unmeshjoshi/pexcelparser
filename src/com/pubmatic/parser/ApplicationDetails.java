@@ -8,23 +8,23 @@ import org.apache.poi.xssf.usermodel.XSSFTable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebsiteDetails {
-    List<Website> websites = new ArrayList<Website>();
+public class ApplicationDetails {
+    List<AdDetails> adDetails = new ArrayList<AdDetails>();
 
-    public WebsiteDetails(XSSFTable table) {
+    public ApplicationDetails(XSSFTable table) {
         XSSFSheet onboardingSheet = table.getXSSFSheet();
         CellReference startCellReference = table.getStartCellReference();
         CellReference endCellReference = table.getEndCellReference();
         for (int i = startCellReference.getRow() + 1; i < endCellReference.getRow(); i++) {
             XSSFRow row = onboardingSheet.getRow(i);
-            Website e = new Website(row);
+            AdDetails e = new AdDetails(row);
             if (!e.isEmpty()) {
-                websites.add(e);
+                adDetails.add(e);
             }
         }
     }
 
-    public List<Website> getWebsites() {
-        return websites;
+    public List<AdDetails> getAdDetails() {
+        return adDetails;
     }
 }
