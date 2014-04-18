@@ -8,7 +8,7 @@ class Worksheet(xssfWorkSheet: XSSFSheet, tables:List[XSSFTable]) {
 
   def this(xssfWorkSheet: XSSFSheet) = this(xssfWorkSheet, xssfWorkSheet.getTables().toList)
 
-  def getTable(tableName: String): XSSFTable = {
+  def getTable(tableName: String) = {
     val table = tables.filter(getTableName(_).equals(tableName))
     if (!table.isEmpty()) table(0) else throw new IllegalArgumentException(tableName);
   }
