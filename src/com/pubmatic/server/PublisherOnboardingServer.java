@@ -66,7 +66,7 @@ public class PublisherOnboardingServer extends AbstractHandler {
 
     private String getUploadFilePath(Part file) {
         String fileName = new ContentDispositionHeader(file.getHeader("content-disposition")).getFileName();
-        return "/home/unmesh" + File.separator
+        return System.getProperty("java.io.tmpdir") + File.separator
                 + new Random().nextInt(1000000) + fileName;
     }
 
