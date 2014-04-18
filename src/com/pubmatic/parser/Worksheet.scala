@@ -1,7 +1,6 @@
 package com.pubmatic.parser
 
-import org.apache.poi.xssf.usermodel.{XSSFCell, XSSFRow, XSSFTable, XSSFSheet}
-import org.apache.poi.ss.util.CellReference
+import org.apache.poi.xssf.usermodel.{XSSFTable, XSSFSheet}
 import scala.collection.JavaConversions._
 
 class Worksheet(xssfWorkSheet: XSSFSheet, tables:List[XSSFTable]) {

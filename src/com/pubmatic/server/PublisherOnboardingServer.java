@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class PublisherOnboardingServer extends AbstractHandler {
 
@@ -64,8 +65,9 @@ public class PublisherOnboardingServer extends AbstractHandler {
     }
 
     private String getUploadFilePath(Part file) {
+        String fileName = new ContentDispositionHeader(file.getHeader("content-disposition")).getFileName();
         return "/home/unmesh" + File.separator
-                + new ContentDispositionHeader(file.getHeader("content-disposition")).getFileName();
+                + new Random().nextInt(1000000) + fileName;
     }
 
     private Onboarding parse(String uploadedFilePath) throws IOException {
