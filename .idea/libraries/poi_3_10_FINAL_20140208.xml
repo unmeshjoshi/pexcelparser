@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="poi-3.10-FINAL-20140208">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/runtime" />
+      <root url="file://$PROJECT_DIR$/lib/buildtime" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/buildtime" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/runtime" recursive="false" />
+  </library>
+</component>

@@ -1,12 +1,6 @@
 package com.pubmatic.parser;
 
-import org.apache.poi.ss.util.CellReference;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFTable;
-
-import java.util.List;
 
 public class Onboarding {
     public static final String LIST_HIGH_LEVEL_SITE_INFO = "List high-level site info for PubMatic to create a media kit or provide one we can use in market";
@@ -18,77 +12,26 @@ public class Onboarding {
     VideoApplications videoApplications;
 
     public Onboarding(XSSFSheet onboarding) {
-        HighLevelSiteInfo deskTopHighLevelSiteInfo = null;
-        ApplicationDetails desktopApplications = null;
+        parse(onboarding);
+    }
 
-        HighLevelSiteInfo mobileHighLevelSiteInfo = null;
-        ApplicationDetails iosApplications = null;
-        ApplicationDetails androidApplications = null;
-        ApplicationDetails mobileWebApplications = null;
-        ApplicationDetails tabletWebApplications = null;
-        ApplicationDetails tabletApplications = null;
+    private void parse(XSSFSheet onboarding) {
+        Worksheet worksheet = new Worksheet(onboarding);
+        ApplicationDetails desktopApplications = new ApplicationDetails(worksheet.getTable("List full website details"));
+        HighLevelSiteInfo mobileHighLevelSiteInfo  = new HighLevelSiteInfo(worksheet.getTable(MOBILE_HIGH_LEVEL_SITE_INFO));
+        ApplicationDetails iosApplications = new ApplicationDetails(worksheet.getTable("In-app (iOS)"));
+        ApplicationDetails androidApplications = new ApplicationDetails(worksheet.getTable("In-app (Android)"));
+        ApplicationDetails mobileWebApplications = new ApplicationDetails(worksheet.getTable("Mobile web"));
+        ApplicationDetails tabletWebApplications  = new ApplicationDetails(worksheet.getTable("Tablet  web"));
+        ApplicationDetails tabletApplications = new ApplicationDetails(worksheet.getTable("Tablet app"));
+        HighLevelSiteInfo videoHighLevelSiteInfo = new HighLevelSiteInfo(worksheet.getTable(VIDEO_HIGH_LEVEL_SITE_INFO));
+        VideoDetails videoDetails = new VideoDetails(worksheet.getTable("Video"));
 
-        HighLevelSiteInfo videoHighLevelSiteInfo = null;
-        VideoDetails videoDetails = null;
-
-        List<XSSFTable> tables = onboarding.getTables();
-        for (XSSFTable table : tables) {
-            CellReference startCellReference = table.getStartCellReference();
-            String tableName = getTableName(onboarding, startCellReference);
-            switch(tableName) {
-                case DESKTOP_HIGH_LEVEL_SITE_INFO:
-                    deskTopHighLevelSiteInfo = new HighLevelSiteInfo(table);
-                    break;
-                case "List full website details":
-                    desktopApplications = new ApplicationDetails(table);
-                    break;
-                case MOBILE_HIGH_LEVEL_SITE_INFO:
-                    mobileHighLevelSiteInfo = new HighLevelSiteInfo(table);
-                    break;
-                case "In-app (iOS)":
-                    iosApplications = new ApplicationDetails(table);
-                    break;
-                case "In-app (Android)":
-                    androidApplications = new ApplicationDetails(table);
-                    break;
-                case "Mobile web":
-                    mobileWebApplications = new ApplicationDetails(table);
-                    break;
-                case "Tablet  web":
-                    tabletWebApplications = new ApplicationDetails(table);
-                    break;
-                case "Tablet app":
-                    tabletApplications = new ApplicationDetails(table);
-                    break;
-                case  VIDEO_HIGH_LEVEL_SITE_INFO:
-                    videoHighLevelSiteInfo = new HighLevelSiteInfo(table);
-                    break;
-                case "Video":
-                    videoDetails = new VideoDetails(table);
-                    break;
-
-            }
-
-        }
-        this.desktopApplications = new DesktopApplications(deskTopHighLevelSiteInfo, desktopApplications);
+        this.desktopApplications = new DesktopApplications(new HighLevelSiteInfo(worksheet.getTable(DESKTOP_HIGH_LEVEL_SITE_INFO)), desktopApplications);
         this.mobileApplications = new MobileApplications(mobileHighLevelSiteInfo, iosApplications, androidApplications, mobileWebApplications, tabletWebApplications, tabletApplications);
         this.videoApplications = new VideoApplications(videoHighLevelSiteInfo, videoDetails);
     }
 
-
-    private String getTableName(XSSFSheet onboarding, CellReference startCellReference) {
-        int tableNameRowIndex = (startCellReference.getRow() - 1);
-        XSSFRow tableNameRow = onboarding.getRow(tableNameRowIndex);
-        String tableName = tableNameRow.getCell(startCellReference.getCol()).getStringCellValue();
-        if (tableName.contains(LIST_HIGH_LEVEL_SITE_INFO)) {
-            int sectionNameRowIndex = (startCellReference.getRow() - 1) - 4;
-            XSSFRow row = onboarding.getRow(sectionNameRowIndex);
-            XSSFCell cell = row.getCell(startCellReference.getCol());
-            String sectionName = cell.getStringCellValue();
-            tableName = sectionName + "_" + tableName;
-        }
-        return tableName;
-    }
 
     public DesktopApplications getDesktopApplications() {
         return desktopApplications;

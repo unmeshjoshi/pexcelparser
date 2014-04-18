@@ -1,0 +1,76 @@
+{"desktopApplications": {
+    "highLevelSiteInfo": {
+        "siteInfos": [
+            {
+                "siteName": "Gawker.com",
+                "category": "Entertainment \u0026 Leisure",
+                "description": "Gawker Media is the publisher of some of the best loved titles on the web including the eponymous Gawker and gadget sensation Gizmodo.",
+                "typeOfInventory": "Website",
+                "transperancy": "Transparent",
+                "uniqUsers": 9000000.0,
+                "clickThroughRate": 0.03,
+                "usTraffic": "80% US",
+                "caTraffic": "15% CA",
+                "ukTraffic": "3% UK",
+                "auTraffic": "2% AU"
+            }
+        ]
+    },
+    "applicationDetails": {
+        "adDetails": []
+    }
+}, "mobileApplications": {
+    "mobileHighLevelSiteInfo": {
+        "siteInfos": [
+            {
+                "siteName": "Spotify.com",
+                "category": "Music",
+                "description": "Leading streaming music service, Spotify allows people to listen to the music they want instantly unlike commercial radio,. Every hour of the day, all sorts of people are doing what they love best - listening to the music that makes them happy.",
+                "typeOfInventory": "Website",
+                "transperancy": "Transparent",
+                "uniqUsers": 7.0E7,
+                "clickThroughRate": 0.01,
+                "usTraffic": "80% US",
+                "caTraffic": "15% CA",
+                "ukTraffic": "3% UK",
+                "auTraffic": "2% AU"
+            }
+        ]
+    },
+    "iosApplications": {
+        "adDetails": []
+    },
+    "androidApplications": {
+        "adDetails": []
+    },
+    "mobileWebApplications": {
+        "adDetails": []
+    },
+    "tabletWebApplications": {
+        "adDetails": []
+    },
+    "tabletApplications": {
+        "adDetails": []
+    }
+}, "videoApplications": {
+    "videoHighLevelSiteInfo": {
+        "siteInfos": [
+            {
+                "siteName": "Spotify.com",
+                "category": "Music",
+                "description": "Leading streaming music service, Spotify allows people to listen to the music they want instantly unlike commercial radio,. Every hour of the day, all sorts of people are doing what they love best - listening to the music that makes them happy.",
+                "typeOfInventory": "Website",
+                "transperancy": "Transparent",
+                "uniqUsers": 7.0E7,
+                "clickThroughRate": 0.01,
+                "usTraffic": "80% US",
+                "caTraffic": "15% CA",
+                "ukTraffic": "5% UK",
+                "auTraffic": "5% UK"
+            }
+        ]
+    },
+    "videoDetails": {
+        "videoAds": []
+    }
+}}
